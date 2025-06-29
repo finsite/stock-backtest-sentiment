@@ -1,0 +1,22 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stock-backtest-sentiment
+  labels:
+    app: stock-backtest-sentiment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stock-backtest-sentiment
+  template:
+    metadata:
+      labels:
+        app: stock-backtest-sentiment
+    spec:
+      containers:
+      - name: stock-backtest-sentiment
+        image: stock-backtest-sentiment:latest
+        ports:
+        - containerPort: 8080
