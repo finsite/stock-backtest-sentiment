@@ -16,7 +16,7 @@ spec:
         app: stock-backtest-sentiment
     spec:
       containers:
-      - name: stock-backtest-sentiment
-        image: stock-backtest-sentiment:latest
-        ports:
-        - containerPort: 8080
+        - name: stock-backtest-sentiment
+          image: stock-backtest-sentiment:latest
+          ports:
+            - containerPort: 8080
