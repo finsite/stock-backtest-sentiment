@@ -1,5 +1,4 @@
-"""
-Processor module for stock-backtest-sentiment signal generation.
+"""Processor module for stock-backtest-sentiment signal generation.
 
 Validates incoming messages and computes a sentiment-based trading signal.
 Sentiment may come from news, social media, or NLP scores.
@@ -15,8 +14,7 @@ logger = setup_logger(__name__)
 
 
 def validate_input_message(message: dict[str, Any]) -> ValidatedMessage:
-    """
-    Validate the incoming raw message against the expected schema.
+    """Validate the incoming raw message against the expected schema.
 
     Args:
         message (dict[str, Any]): Raw input message.
@@ -26,6 +24,7 @@ def validate_input_message(message: dict[str, Any]) -> ValidatedMessage:
 
     Raises:
         ValueError: If the input format is invalid.
+
     """
     logger.debug("🔍 Validating message schema...")
     if not validate_message_schema(message):
@@ -35,14 +34,14 @@ def validate_input_message(message: dict[str, Any]) -> ValidatedMessage:
 
 
 def compute_sentiment_signal(message: ValidatedMessage) -> dict[str, Any]:
-    """
-    Compute a sentiment-based signal using a placeholder sentiment score.
+    """Compute a sentiment-based signal using a placeholder sentiment score.
 
     Args:
         message (ValidatedMessage): The validated input data.
 
     Returns:
         dict[str, Any]: Enriched message with sentiment score and signal.
+
     """
     symbol = message.get("symbol", "UNKNOWN")
     sentiment_score = float(message.get("sentiment_score", 0.0))  # Typically -1.0 to +1.0
